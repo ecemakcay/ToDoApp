@@ -17,7 +17,7 @@ class HomePageVC: UIViewController {
 
     @IBAction func detailButtonAct(_ sender: Any) {
         
-        let todo = Todo(todo_id: 13, todo_name: "Orçun")
+        let todo = Todo(todo_id: 13, todo_name: "do something")
         
         performSegue(withIdentifier: "toDetail", sender: todo)
     }
