@@ -69,4 +69,23 @@ extension HomePageVC : UITableViewDelegate, UITableViewDataSource{
         performSegue(withIdentifier: "toDetail", sender: todo)
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+       
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){contextualAction,view,bool in
+            let todo = self.todoList[indexPath.row]
+           
+            
+            let alert = UIAlertController(title: "Delete", message: "Do you want  \(todo.todo_name) delete? ", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(cancel)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: .destructive){
+                action in
+                print("Delete Todo : \(todo.todo_id)")
+            }
+            alert.addAction(yesAction)
+            self.present(alert, animated: true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }
