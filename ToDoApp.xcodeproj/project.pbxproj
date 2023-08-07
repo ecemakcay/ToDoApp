@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE09C4F42A8088860094F701 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE09C4F32A8088860094F701 /* TodoCell.swift */; };
 		DE3DBAFA2A79AD32004739A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3DBAF92A79AD32004739A9 /* AppDelegate.swift */; };
 		DE3DBAFC2A79AD32004739A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3DBAFB2A79AD32004739A9 /* SceneDelegate.swift */; };
 		DE3DBAFE2A79AD32004739A9 /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3DBAFD2A79AD32004739A9 /* HomePageVC.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE09C4F32A8088860094F701 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		DE3DBAF62A79AD32004739A9 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3DBAF92A79AD32004739A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE3DBAFB2A79AD32004739A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE09C4F22A8088600094F701 /* tableview */ = {
+			isa = PBXGroup;
+			children = (
+				DE09C4F32A8088860094F701 /* TodoCell.swift */,
+			);
+			path = tableview;
+			sourceTree = "<group>";
+		};
 		DE3DBAED2A79AD32004739A9 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		DE3DBB0E2A79B37C004739A9 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DE09C4F22A8088600094F701 /* tableview */,
 				DE3DBB0F2A79B384004739A9 /* views */,
 			);
 			path = ui;
@@ -181,6 +192,7 @@
 			files = (
 				DE3DBAFE2A79AD32004739A9 /* HomePageVC.swift in Sources */,
 				DE3DBB142A79C38E004739A9 /* DetailPageVC.swift in Sources */,
+				DE09C4F42A8088860094F701 /* TodoCell.swift in Sources */,
 				DE3DBB122A79C2A1004739A9 /* SavePageVC.swift in Sources */,
 				DE3DBB162A79DACD004739A9 /* Todo.swift in Sources */,
 				DE3DBAFA2A79AD32004739A9 /* AppDelegate.swift in Sources */,

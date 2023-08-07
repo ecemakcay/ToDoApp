@@ -11,12 +11,15 @@ class DetailPageVC: UIViewController {
 
     @IBOutlet weak var todoTextField: UITextField!
     var todo : Todo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let t = todo {
             todoTextField.text = t.todo_name
         }
+        
+       
      
     }
     

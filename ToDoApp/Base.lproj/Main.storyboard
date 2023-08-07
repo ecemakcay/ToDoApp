@@ -16,22 +16,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-aB-aVv">
-                                <rect key="frame" x="113.33333333333333" y="404" width="166.66666666666669" height="44"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Go To Detail">
-                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
-                                </buttonConfiguration>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8YE-e5-hat">
+                                <rect key="frame" x="0.0" y="155" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="detailButtonAct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ACq-jc-xv0"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="7E4-R2-t0X"/>
                                 </connections>
-                            </button>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NE9-z3-w4V">
+                                <rect key="frame" x="0.0" y="211" width="393" height="607"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="todoCell" id="MMK-H1-Sc6" customClass="TodoCell" customModule="ToDoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MMK-H1-Sc6" id="BeJ-Ce-14x">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sn4-hk-SMX">
+                                                    <rect key="frame" x="36" y="37" width="52" height="26.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sn4-hk-SMX" firstAttribute="leading" secondItem="BeJ-Ce-14x" secondAttribute="leadingMargin" constant="16" id="kqt-Is-ZQ6"/>
+                                                <constraint firstItem="sn4-hk-SMX" firstAttribute="centerY" secondItem="BeJ-Ce-14x" secondAttribute="centerY" id="lsE-WU-8Ea"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="todoContentLabel" destination="sn4-hk-SMX" id="Dn9-SD-1Ov"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ClP-aB-aVv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4tw-jn-Mnl"/>
-                            <constraint firstItem="ClP-aB-aVv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O5H-oR-JFw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NE9-z3-w4V" secondAttribute="trailing" id="1vU-rs-D6w"/>
+                            <constraint firstItem="8YE-e5-hat" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="369-il-Iin"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NE9-z3-w4V" secondAttribute="bottom" id="4Ta-dv-7Rg"/>
+                            <constraint firstItem="NE9-z3-w4V" firstAttribute="top" secondItem="8YE-e5-hat" secondAttribute="bottom" id="Csq-4d-oZs"/>
+                            <constraint firstItem="NE9-z3-w4V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HDh-Dd-iyG"/>
+                            <constraint firstItem="8YE-e5-hat" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XEP-wy-KDU"/>
+                            <constraint firstItem="8YE-e5-hat" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qfE-WO-6TC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ToDo" id="qI6-LQ-g4d">
@@ -42,6 +73,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="8YE-e5-hat" id="PlW-Td-1Nb"/>
+                        <outlet property="todoTableView" destination="NE9-z3-w4V" id="gEe-N5-2Jt"/>
                         <segue destination="Lac-aF-fXh" kind="show" identifier="toDetail" id="yDA-9y-sph"/>
                     </connections>
                 </viewController>
@@ -111,6 +144,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Update">
                                     <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="28"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="updateButtonAct:" destination="Lac-aF-fXh" eventType="touchUpInside" id="aX0-3T-TLz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PYR-bX-a9d"/>
