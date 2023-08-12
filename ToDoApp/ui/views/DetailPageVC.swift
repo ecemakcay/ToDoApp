@@ -11,6 +11,7 @@ class DetailPageVC: UIViewController {
 
     @IBOutlet weak var todoTextField: UITextField!
     var todo : Todo?
+    var viewModel = DetailPageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,8 @@ class DetailPageVC: UIViewController {
     @IBAction func updateButtonAct(_ sender: Any) {
         
         if let td = todoTextField.text, let t = todo{
-            update(todo_id: t.todo_id,toDo: td)
+            viewModel.update(todo_id: t.todo_id,toDo: td)
         }
     }
-    
-    func update (todo_id: Int, toDo: String){
-        print(" Updated To Do: \(toDo)")
-    }
+
 }

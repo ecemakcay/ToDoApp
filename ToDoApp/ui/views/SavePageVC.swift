@@ -9,6 +9,8 @@ import UIKit
 
 class SavePageVC: UIViewController {
 
+    var viewModel = SavePageViewModel()
+    
     @IBOutlet weak var toDoTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +21,8 @@ class SavePageVC: UIViewController {
 
     @IBAction func saveButtonAct(_ sender: Any) {
         if let toDo = toDoTextField.text{
-            save(toDo: toDo)
+            viewModel.save(toDo: toDo)
         }
        
-    }
-    
-    func save (toDo: String){
-        print("To Do: \(toDo)")
     }
 }

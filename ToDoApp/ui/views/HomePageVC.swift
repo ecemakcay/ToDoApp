@@ -12,27 +12,25 @@ class HomePageVC: UIViewController {
     @IBOutlet weak var todoTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var viewModel = HomePageViewModel()
     var todoList = [Todo]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         todoTableView.delegate = self
         todoTableView.dataSource = self
-        
-        
-        let t1 = Todo(todo_id: 1, todo_name: "Read a book")
-        let t2 = Todo(todo_id: 2, todo_name: "Study IOS")
-        let t3 = Todo(todo_id: 3, todo_name: "Go to gym")
-        let t4 = Todo(todo_id: 4, todo_name: "Design todo app")
-        
-        todoList.append(t1)
-        todoList.append(t2)
-        todoList.append(t3)
-        todoList.append(t4)
-        
+    
+        _ = viewModel.todoList.subscribe(onNext: { list in
+            self.todoList = list
+            self.todoTableView.reloadData()
+        })
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.uploadTodo()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail"{
@@ -46,7 +44,7 @@ class HomePageVC: UIViewController {
 
 extension HomePageVC: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Kişi ara : \(searchText)")
+        viewModel.search(searchWord: searchText)
     }
 }
 
@@ -72,6 +70,7 @@ extension HomePageVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
        
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){contextualAction,view,bool in
+            
             let todo = self.todoList[indexPath.row]
            
             
@@ -81,7 +80,9 @@ extension HomePageVC : UITableViewDelegate, UITableViewDataSource{
             
             let yesAction = UIAlertAction(title: "Yes", style: .destructive){
                 action in
-                print("Delete Todo : \(todo.todo_id)")
+                
+                self.viewModel.delete(todo_id: todo.todo_id)
+
             }
             alert.addAction(yesAction)
             self.present(alert, animated: true)

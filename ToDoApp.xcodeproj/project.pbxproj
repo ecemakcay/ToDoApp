@@ -17,6 +17,11 @@
 		DE3DBB122A79C2A1004739A9 /* SavePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3DBB112A79C2A1004739A9 /* SavePageVC.swift */; };
 		DE3DBB142A79C38E004739A9 /* DetailPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3DBB132A79C38E004739A9 /* DetailPageVC.swift */; };
 		DE3DBB162A79DACD004739A9 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3DBB152A79DACD004739A9 /* Todo.swift */; };
+		DE5338192A882A5400F48BCE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE5338182A882A5400F48BCE /* RxSwift */; };
+		DE53381C2A882C2A00F48BCE /* TodoDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53381B2A882C2A00F48BCE /* TodoDaoRepository.swift */; };
+		DE53381F2A882EF100F48BCE /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE53381E2A882EF100F48BCE /* HomePageViewModel.swift */; };
+		DE5338212A882F0400F48BCE /* SavePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5338202A882F0400F48BCE /* SavePageViewModel.swift */; };
+		DE5338232A88300600F48BCE /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5338222A88300600F48BCE /* DetailPageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,10 @@
 		DE3DBB112A79C2A1004739A9 /* SavePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePageVC.swift; sourceTree = "<group>"; };
 		DE3DBB132A79C38E004739A9 /* DetailPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageVC.swift; sourceTree = "<group>"; };
 		DE3DBB152A79DACD004739A9 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		DE53381B2A882C2A00F48BCE /* TodoDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDaoRepository.swift; sourceTree = "<group>"; };
+		DE53381E2A882EF100F48BCE /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
+		DE5338202A882F0400F48BCE /* SavePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePageViewModel.swift; sourceTree = "<group>"; };
+		DE5338222A88300600F48BCE /* DetailPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE5338192A882A5400F48BCE /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +97,7 @@
 		DE3DBB0D2A79B36B004739A9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				DE53381A2A882C0800F48BCE /* repo */,
 				DE3DBB102A79B38C004739A9 /* entity */,
 			);
 			path = data;
@@ -95,6 +106,7 @@
 		DE3DBB0E2A79B37C004739A9 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DE53381D2A882ECB00F48BCE /* viewmodel */,
 				DE09C4F22A8088600094F701 /* tableview */,
 				DE3DBB0F2A79B384004739A9 /* views */,
 			);
@@ -119,6 +131,24 @@
 			path = entity;
 			sourceTree = "<group>";
 		};
+		DE53381A2A882C0800F48BCE /* repo */ = {
+			isa = PBXGroup;
+			children = (
+				DE53381B2A882C2A00F48BCE /* TodoDaoRepository.swift */,
+			);
+			path = repo;
+			sourceTree = "<group>";
+		};
+		DE53381D2A882ECB00F48BCE /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				DE53381E2A882EF100F48BCE /* HomePageViewModel.swift */,
+				DE5338202A882F0400F48BCE /* SavePageViewModel.swift */,
+				DE5338222A88300600F48BCE /* DetailPageViewModel.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +165,9 @@
 			dependencies = (
 			);
 			name = ToDoApp;
+			packageProductDependencies = (
+				DE5338182A882A5400F48BCE /* RxSwift */,
+			);
 			productName = ToDoApp;
 			productReference = DE3DBAF62A79AD32004739A9 /* ToDoApp.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +196,9 @@
 				Base,
 			);
 			mainGroup = DE3DBAED2A79AD32004739A9;
+			packageReferences = (
+				DE5338172A882A5400F48BCE /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = DE3DBAF72A79AD32004739A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -192,10 +228,14 @@
 			files = (
 				DE3DBAFE2A79AD32004739A9 /* HomePageVC.swift in Sources */,
 				DE3DBB142A79C38E004739A9 /* DetailPageVC.swift in Sources */,
+				DE53381F2A882EF100F48BCE /* HomePageViewModel.swift in Sources */,
 				DE09C4F42A8088860094F701 /* TodoCell.swift in Sources */,
 				DE3DBB122A79C2A1004739A9 /* SavePageVC.swift in Sources */,
+				DE53381C2A882C2A00F48BCE /* TodoDaoRepository.swift in Sources */,
+				DE5338232A88300600F48BCE /* DetailPageViewModel.swift in Sources */,
 				DE3DBB162A79DACD004739A9 /* Todo.swift in Sources */,
 				DE3DBAFA2A79AD32004739A9 /* AppDelegate.swift in Sources */,
+				DE5338212A882F0400F48BCE /* SavePageViewModel.swift in Sources */,
 				DE3DBAFC2A79AD32004739A9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +454,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DE5338172A882A5400F48BCE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DE5338182A882A5400F48BCE /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE5338172A882A5400F48BCE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE3DBAEE2A79AD32004739A9 /* Project object */;
 }
