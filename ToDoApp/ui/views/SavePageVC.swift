@@ -20,8 +20,8 @@ class SavePageVC: UIViewController {
     
 
     @IBAction func saveButtonAct(_ sender: Any) {
-        if let toDo = toDoTextField.text{
-            viewModel.save(toDo: toDo)
+        if let todo_name = toDoTextField.text{
+            viewModel.save(todo_name: todo_name)
         }
        
     }

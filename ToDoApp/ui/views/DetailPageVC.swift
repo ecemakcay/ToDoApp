@@ -27,7 +27,7 @@ class DetailPageVC: UIViewController {
     @IBAction func updateButtonAct(_ sender: Any) {
         
         if let td = todoTextField.text, let t = todo{
-            viewModel.update(todo_id: t.todo_id,toDo: td)
+            viewModel.update(todo_id: t.todo_id,todo_name: td)
         }
     }
 

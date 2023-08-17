@@ -11,7 +11,7 @@ class SavePageViewModel{
     
     var trepo = TodoDaoRepository()
     
-    func save (toDo: String){
-        trepo.save(toDo: toDo)
+    func save (todo_name: String){
+        trepo.save(todo_name: todo_name)
     }
 }
